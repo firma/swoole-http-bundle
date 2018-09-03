@@ -1,0 +1,25 @@
+services:
+    app.swoole.server:
+        class: Firma\Bundle\SwooleBundle\Swoole\Server
+        public: true
+        arguments: ["", "", "", "@kernel"]
+
+    swoole_server.command.start:
+        class: Firma\Bundle\SwooleBundle\Command\ServerStartCommand
+        tags:
+            - { name: console.command }
+
+    swoole_server.command.status:
+        class: Firma\Bundle\SwooleBundle\Command\ServerStatusCommand
+        tags:
+            - { name: console.command }
+
+    swoole_server.command.stop:
+        class: Firma\Bundle\SwooleBundle\Command\ServerStopCommand
+        tags:
+            - { name: console.command }
+
+    swoole_server.command.reload:
+        class: Firma\Bundle\SwooleBundle\Command\ServerReloadCommand
+        tags:
+            - { name: console.command }
