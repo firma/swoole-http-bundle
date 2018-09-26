@@ -2,7 +2,7 @@
 /**
  * Created by Date: 2018/9/3
  */
-declare(strict_types=1);
+//declare(strict_types=1);
 namespace Firma\Bundle\SwooleBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;

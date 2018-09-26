@@ -2,7 +2,7 @@
 /**
  * Created by Date: 2018/9/3
  */
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Firma\Bundle\SwooleBundle\Swoole;
 
@@ -31,6 +31,7 @@ class Response
         // status
         $response->status($symfonyResponse->getStatusCode());
         // cookies
+        //swoole_http_response->cookie(string $key, string $value = '', int $expire = 0 , string $path = '/', string $domain  = '', bool $secure = false , bool $httponly = false);
         foreach ($symfonyResponse->headers->getCookies() as $cookie) {
             $response->cookie(
                 $cookie->getName(),
