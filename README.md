@@ -68,6 +68,36 @@ options:
     ssl_key_file: ~
 ```
 
+为Redis连接定义Symfony服务，并将其设置为服务的构造函数参数RedisSessionHandler：
+```
+# config/services.yaml
+services:  
+    Redis:
+        class: Redis
+        calls:
+            - method: connect
+              arguments:
+                  - '%env(REDIS_HOST)%'
+                  - '%env(int:REDIS_PORT)%'
+            # If you need key prefix, uncomment line belows
+            # - method: setOption
+            #   arguments:
+            #       - !php/const Redis::OPT_PREFIX
+            #       - 'my_prefix'
+
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+        arguments:
+            - '@Redis'
+```    
+要了解有关%env(…)%Symfony 3\4 中引入的高级用法的更多信息（如我在此处使用的int处理器），请查看Symfony文档。
+您现在可以将该服务用作会话处理程序：
+
+```
+# config/packages/framework.yaml
+framework:  
+    session:
+        handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler
+```
 
  - [swoole参数文档][1] 
  
