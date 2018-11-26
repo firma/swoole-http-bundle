@@ -89,7 +89,7 @@ services:
         arguments:
             - '@Redis'
 ```    
-要了解有关%env(…)%Symfony 3\4 中引入的高级用法的更多信息（如我在此处使用的int处理器），请查看Symfony文档。
+要了解有关%env(…)%Symfony 3\4 中引入的高级用法的更多信息（如我在此处使用的int处理器），请查看 [Symfony文档][2]。
 您现在可以将该服务用作会话处理程序：
 
 ```
@@ -103,3 +103,4 @@ framework:
  
  
  [1]: https://wiki.swoole.com/wiki/page/p-max_request.html
+ [2]: https://symfony.com/doc/current/configuration/external_parameters.html
